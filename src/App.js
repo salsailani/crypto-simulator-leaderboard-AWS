@@ -12,10 +12,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 function App(){
   return (
     <div>
-    <Router>
-      <Navbar2/>
-      <Route path="/Login.js" exact component={Login} />
-    </Router>
+    <Navbar2/>
     <CryptoName name="BTC"/>
     <Chart ticker ="BINANCE:BTCUSD"/>
     <BuyAndSellButtons/>
