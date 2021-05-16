@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cryptosimulatorleade-dev-115659-authRole",
+      "UnauthRoleArn": "arn:aws:iam::132344913864:role/amplify-cryptosimulatorleade-dev-115659-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::132344913864:role/amplify-cryptosimulatorleade-dev-115659-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cryptosimulatorleade-dev-115659-deployment",
+      "UnauthRoleName": "amplify-cryptosimulatorleade-dev-115659-unauthRole",
+      "StackName": "amplify-cryptosimulatorleade-dev-115659",
+      "StackId": "arn:aws:cloudformation:us-east-1:132344913864:stack/amplify-cryptosimulatorleade-dev-115659/301fbbc0-b596-11eb-b639-0addedaaaadd",
+      "AmplifyAppId": "d35jd4sqaf8f3h"
+    },
+    "categories": {
+      "auth": {
+        "cryptosimulatorleadeba1b835fba1b835f": {}
+      }
+    }
+  }
+}

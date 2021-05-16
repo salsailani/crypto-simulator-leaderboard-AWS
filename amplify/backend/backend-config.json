@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "cryptosimulatorleadeba1b835fba1b835f": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
