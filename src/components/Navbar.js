@@ -27,7 +27,7 @@ function Navbar2(){
         <Nav.Link href="#FAQ">FAQ</Nav.Link>
       </Nav>
       <Form inline>
-        <Button  onClick={routeChange} variant="outline-info" href="https://cryptosimulatorleadeba1b835f-ba1b835f-dev.auth.us-east-1.amazoncognito.com/login?client_id=1lh9jp1gpvju97aac6cecs1o3i&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000/">Login/Signup</Button>
+        <Button  onClick={routeChange} variant="outline-info" href="https://cryptosimulatorleadeba1b835f-ba1b835f-dev.auth.us-east-1.amazoncognito.com/login?client_id=1lh9jp1gpvju97aac6cecs1o3i&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000/screens/login">Login/Signup</Button>
       </Form>
     </Navbar>
   </div>
