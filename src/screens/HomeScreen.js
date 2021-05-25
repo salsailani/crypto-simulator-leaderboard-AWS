@@ -5,7 +5,6 @@ import Navbar2 from '../components/Navbar'
 import Chart from '../components/Chart'
 import CryptoName from '../components/CryptoName'
 import BuyAndSellButtons from '../components/BuyAndSellButtons'
-import {BrowserRouter as Router, Route} from "react-router-dom";
 
 
 function HomeScreen(){

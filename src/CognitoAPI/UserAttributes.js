@@ -1,17 +1,31 @@
 import React from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AWS from 'aws-sdk';
+
+
+
 
 function UserAttributes( ){
-    const params = new URLSearchParams(window.location.search)
-    if (params.has('code')) var accessToken = params.get('code')
-    var cognitoidentity = new AWS.CognitoIdentity();
-    cognitoidentity.createIdentityPool(accessToken , function (err, data) {
-    if (err) console.log(err, err.stack); // an error occurred
-    else     console.log(data);           // successful response
-});
+    const params = (window.location.href)
+    var IDtokenMatch = params.match(/=[^&]+/)
+    var IDtokenTemp = IDtokenMatch[0]
+    var IDtoken = IDtokenTemp.substring(1) //removing the first equal sign
 
+    var tokens = IDtoken.split(".");  //JWT Token 
+
+    var kid = (atob(tokens[0])); //key identifier
+    var userInfo = (atob(tokens[1]))
+
+    var name = userInfo.name
+    console.log(name)
+
+
+return(
+    <div>
+    <h1>{userInfo}</h1>
+    <h1>{userInfo.name}</h1>
+    </div>
+)
 
 
 }

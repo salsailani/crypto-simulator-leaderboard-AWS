@@ -5,8 +5,8 @@ import Navbar2 from '../components/Navbar'
 import Chart from '../components/Chart'
 import CryptoName from '../components/CryptoName'
 import BuyAndSellButtons from '../components/BuyAndSellButtons'
-import {BrowserRouter as Router, Route} from "react-router-dom";
 import UserAttributes from '../CognitoAPI/UserAttributes'
+import CheckLoginStatus from '../CognitoAPI/CheckLoginStatus';
 
 
 function ChangeLoginState(){
@@ -18,6 +18,7 @@ function ChangeLoginState(){
     <BuyAndSellButtons/>
     <h1>After Login</h1>
     <UserAttributes/>
+    <CheckLoginStatus/>
     </div>
   );
 }

@@ -6,7 +6,7 @@ function CryptoName(props){
     return(
       <div>
   
-      <text fontFamily='Kalam-Bold' style={{
+      <p fontFamily='Kalam-Bold' style={{
        fontSize: 40,
        display: "flex",
        justifyContent: "center",
@@ -14,7 +14,7 @@ function CryptoName(props){
        marginTop: '50px'
       }}>
   
-      {props.name} </text>
+      {props.name} </p>
       </div>
     );
   } 
