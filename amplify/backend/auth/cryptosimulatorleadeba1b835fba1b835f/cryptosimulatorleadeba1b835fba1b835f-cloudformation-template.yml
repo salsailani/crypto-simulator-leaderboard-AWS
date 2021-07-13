@@ -145,10 +145,6 @@ Parameters:
     Type: String
   
             
-  hostedUIProviderCreds:
-    Type: String
-  
-            
   oAuthMetadata:
     Type: String
   
@@ -157,7 +153,6 @@ Parameters:
   userPoolGroupList:
     Type: CommaDelimitedList
       
-            
   serviceName:
     Type: String
   
@@ -178,6 +173,19 @@ Parameters:
   dependsOn:
     Type: CommaDelimitedList
       
+  hostedUIProviderCreds:
+    Type: String
+  
+            
+            
+        
+  authProviders:
+    Type: CommaDelimitedList
+      
+  
+  breakCircularDependency:
+    Type: String
+            
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
   
@@ -546,24 +554,44 @@ Resources:
             - '   let providerCredsIndex = hostedUIProviderCreds.findIndex((provider) => provider.ProviderName === providerName);'
             - '   let providerCreds = hostedUIProviderCreds[providerCredsIndex];'
             - '   let requestParams = {'
-            - '    ProviderDetails: {'
-            - '     ''client_id'': providerCreds.client_id,'
-            - '     ''client_secret'': providerCreds.client_secret,'
-            - '     ''authorize_scopes'': providerMeta.authorize_scopes'
-            - '    },'
             - '    ProviderName: providerMeta.ProviderName,'
             - '    UserPoolId: userPoolId,'
-            - '    AttributeMapping: providerMeta.AttributeMapping'
+            - '    AttributeMapping: providerMeta.AttributeMapping,'
             - '   };'
+            - '   if (providerMeta.ProviderName === ''SignInWithApple'') {'
+            - '     if (providerCreds.client_id && providerCreds.team_id && providerCreds.key_id && providerCreds.private_key) {'
+            - '      requestParams.ProviderDetails = {'
+            - '       ''client_id'': providerCreds.client_id,'
+            - '       ''team_id'': providerCreds.team_id,'
+            - '       ''key_id'': providerCreds.key_id,'
+            - '       ''private_key'': providerCreds.private_key,'
+            - '       ''authorize_scopes'': providerMeta.authorize_scopes,'
+            - '      };'
+            - '     } else {'
+            - '       requestParams = null;'
+            - '     }'
+            - '   } else {'
+            - '    requestParams.ProviderDetails = {'
+            - '     ''client_id'': providerCreds.client_id,'
+            - '     ''client_secret'': providerCreds.client_secret,'
+            - '     ''authorize_scopes'': providerMeta.authorize_scopes,'
+            - '    };'
+            - '   }'
             - '   return requestParams;'
             - '  };'
             - '  let createIdentityProvider = (providerName) => {'
             - '   let requestParams = getRequestParams(providerName);'
+            - '   if (!requestParams) {'
+            - '     return Promise.resolve();'
+            - '   }'
             - '   requestParams.ProviderType = requestParams.ProviderName;'
             - '   return identity.createIdentityProvider(requestParams).promise();'
             - '  };'
             - '  let updateIdentityProvider = (providerName) => {'
             - '   let requestParams = getRequestParams(providerName);'
+            - '   if (!requestParams) {'
+            - '     return Promise.resolve();'
+            - '   }'
             - '   return identity.updateIdentityProvider(requestParams).promise();'
             - '  };'
             - '  let deleteIdentityProvider = (providerName) => {'
@@ -807,6 +835,9 @@ Outputs :
   UserPoolId:
     Value: !Ref 'UserPool'
     Description:  Id for the user pool
+  UserPoolArn:
+    Value: !GetAtt UserPool.Arn
+    Description:  Arn for the user pool
   UserPoolName:
     Value: !Ref userPoolName
   AppClientIDWeb:
@@ -818,6 +849,7 @@ Outputs :
   AppClientSecret:
     Value: !GetAtt UserPoolClientInputs.appSecret
     Condition: ShouldOutputAppClientSecrets
+  
   
   
   
