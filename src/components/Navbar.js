@@ -23,7 +23,7 @@ function Navbar2(){
         <Nav.Link href="#FAQ">FAQ</Nav.Link>
       </Nav>
       <Form inline>
-        <Button  onClick={routeChange} variant="outline-info" href="https://cryptosimulatorleadeba1b835f-ba1b835f-dev.auth.us-east-1.amazoncognito.com/login?client_id=1cnogskunu6mcsgsqa1t2tga54&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://production.d35jd4sqaf8f3h.amplifyapp.com">Login/Signup</Button>
+        <Button  onClick={routeChange} variant="outline-info" href="https://cryptosimulatorleadeba1b835f-ba1b835f-dev.auth.us-east-1.amazoncognito.com/login?client_id=1cnogskunu6mcsgsqa1t2tga54&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://production.d35jd4sqaf8f3h.amplifyapp.com/login">Login/Signup</Button>
       </Form>
     </Navbar>
   </div>
