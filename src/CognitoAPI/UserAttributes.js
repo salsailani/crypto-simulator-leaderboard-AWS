@@ -15,15 +15,15 @@ function UserAttributes( ){
 
     var kid = (atob(tokens[0])); //key identifier
     var userInfo = (atob(tokens[1]))
-
-    var name = userInfo.name
-    console.log(name)
+    var userInfo2 = JSON.stringify(userInfo)
+    var name2 = userInfo2.name
+    console.log(name2)
 
 
 return(
     <div>
     <h1>{userInfo}</h1>
-    <h1>{userInfo.name}</h1>
+    <h1>{name2}</h1>
     </div>
 )
 
