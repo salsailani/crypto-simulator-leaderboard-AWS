@@ -18,3 +18,7 @@ AWS steps followed:
 7. fixed cognito callback issues by editing callback url in both cognito console and locally
 
 8.  user pool OAuth 2.0 grants, for now Implicit Grant is used (JWT [Json Web Tokens]) to avoid backend code (not the most secure). Authorization code grant will later be implemented. 
+
+9. Set up new production branch with CI/CD pipeline
+
+10. added a node.js script to auto-confirm user after sign-up (lambda trigger)
