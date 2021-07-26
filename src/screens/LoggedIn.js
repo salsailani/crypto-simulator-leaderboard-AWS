@@ -12,7 +12,7 @@ import CheckLoginStatus from '../CognitoAPI/CheckLoginStatus';
 function LoggedIn(){
   return (
     <div>
-    <Navbar2 status="LogOut" URL = "https://cryptosimulatorleadeba1b835f-ba1b835f-dev.auth.us-east-1.amazoncognito.com/logout?client_id=1lh9jp1gpvju97aac6cecs1o3i&response_type=code&redirect_uri=http://localhost:3000/"/>
+    <Navbar2 status="LogOut" URL = "https://cryptosimulatorleadeba1b835f-ba1b835f-dev.auth.us-east-1.amazoncognito.com/logout?client_id=1lh9jp1gpvju97aac6cecs1o3i&response_type=code&redirect_uri=https://master.d35jd4sqaf8f3h.amplifyapp.com/"/>
     <CryptoName name="BTC"/>      
     <Chart ticker ="BINANCE:BTCUSD"/>
     <BuyAndSellButtons/>
